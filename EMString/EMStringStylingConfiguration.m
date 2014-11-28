@@ -27,6 +27,7 @@
 
 #pragma mark - Getters
 
+#pragma mark - Fonts
 
 - (UIFont *)strongFont
 {
@@ -37,6 +38,14 @@
 - (UIFont *)emphasisFont
 {
     return (_emphasisFont) ?: [UIFont italicSystemFontOfSize:12];
+}
+
+#pragma mark - Options
+
+
+- (NSUnderlineStyle)underlineStyle
+{
+    return (_underlineStyle == NSUnderlineStyleNone) ?: NSUnderlineStyleSingle;
 }
 
 @end

@@ -21,6 +21,8 @@
 + (EMStringStylingConfiguration *)sharedInstance;
 
 
+// Fonts
+
 /**
  *  The font for strong markup.
  */
@@ -31,5 +33,10 @@
  *  The font for emphasis markup.
  */
 @property (strong, nonatomic) UIFont *emphasisFont;
+
+
+// Options
+
+@property (nonatomic) NSUnderlineStyle underlineStyle;
 
 @end

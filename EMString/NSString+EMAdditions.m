@@ -53,7 +53,7 @@
 
 - (NSAttributedString *)styleUnderlineForString:(NSAttributedString *)attributedString
 {
-    return [self styleMarkup:kEMUnderlineMarkup closeMarkup:kEMUnderlineCloseMarkup withAttributes:@{NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) } forAttributedString:attributedString];
+    return [self styleMarkup:kEMUnderlineMarkup closeMarkup:kEMUnderlineCloseMarkup withAttributes:@{NSUnderlineStyleAttributeName : @([EMStringStylingConfiguration sharedInstance].underlineStyle) } forAttributedString:attributedString];
 }
 
 
