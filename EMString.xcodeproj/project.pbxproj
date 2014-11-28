@@ -15,7 +15,7 @@
 		5E55F8BC1A276AA7001860EB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E55F8BA1A276AA7001860EB /* LaunchScreen.xib */; };
 		5E55F8C81A276AA7001860EB /* EMStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8C71A276AA7001860EB /* EMStringTests.m */; };
 		5E55F8D31A276B25001860EB /* NSString+EMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */; };
-		5E55F8D91A279F3A001860EB /* EMStringStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D81A279F3A001860EB /* EMStringStyling.m */; };
+		5E55F8D91A279F3A001860EB /* EMStringStylingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D81A279F3A001860EB /* EMStringStylingConfiguration.m */; };
 		5E55F8DF1A28DB08001860EB /* EMMarkupProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +45,8 @@
 		5E55F8C71A276AA7001860EB /* EMStringTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMStringTests.m; sourceTree = "<group>"; };
 		5E55F8D11A276B25001860EB /* NSString+EMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EMAdditions.h"; sourceTree = "<group>"; };
 		5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EMAdditions.m"; sourceTree = "<group>"; };
-		5E55F8D71A279F3A001860EB /* EMStringStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMStringStyling.h; sourceTree = "<group>"; };
-		5E55F8D81A279F3A001860EB /* EMStringStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMStringStyling.m; sourceTree = "<group>"; };
+		5E55F8D71A279F3A001860EB /* EMStringStylingConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMStringStylingConfiguration.h; sourceTree = "<group>"; };
+		5E55F8D81A279F3A001860EB /* EMStringStylingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMStringStylingConfiguration.m; sourceTree = "<group>"; };
 		5E55F8DD1A28DB08001860EB /* EMMarkupProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMarkupProperty.h; sourceTree = "<group>"; };
 		5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMarkupProperty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,8 +96,8 @@
 				5E55F8B31A276AA7001860EB /* ViewController.m */,
 				5E55F8D11A276B25001860EB /* NSString+EMAdditions.h */,
 				5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */,
-				5E55F8D71A279F3A001860EB /* EMStringStyling.h */,
-				5E55F8D81A279F3A001860EB /* EMStringStyling.m */,
+				5E55F8D71A279F3A001860EB /* EMStringStylingConfiguration.h */,
+				5E55F8D81A279F3A001860EB /* EMStringStylingConfiguration.m */,
 				5E55F8DD1A28DB08001860EB /* EMMarkupProperty.h */,
 				5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */,
 				5E55F8B51A276AA7001860EB /* Main.storyboard */,
@@ -235,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E55F8B41A276AA7001860EB /* ViewController.m in Sources */,
-				5E55F8D91A279F3A001860EB /* EMStringStyling.m in Sources */,
+				5E55F8D91A279F3A001860EB /* EMStringStylingConfiguration.m in Sources */,
 				5E55F8D31A276B25001860EB /* NSString+EMAdditions.m in Sources */,
 				5E55F8B11A276AA7001860EB /* AppDelegate.m in Sources */,
 				5E55F8DF1A28DB08001860EB /* EMMarkupProperty.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "NSString+EMAdditions.h"
-#import "EMStringStyling.h"
+#import "EMStringStylingConfiguration.h"
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [EMStringStyling sharedInstance].strongFont = [UIFont boldSystemFontOfSize:20];
+    [EMStringStylingConfiguration sharedInstance].strongFont = [UIFont boldSystemFontOfSize:20];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 300, 200)];
     label.numberOfLines = 0;

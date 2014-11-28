@@ -6,20 +6,26 @@
 //  Copyright (c) 2014 Tanguy Aladenise. All rights reserved.
 //
 
-#import "EMStringStyling.h"
+#import "EMStringStylingConfiguration.h"
 
-@implementation EMStringStyling
+@implementation EMStringStylingConfiguration
 
 
-+ (EMStringStyling *)sharedInstance
+#pragma Init
+
+
++ (EMStringStylingConfiguration *)sharedInstance
 {
     static dispatch_once_t once;
     static id sharedInstance;
     dispatch_once(&once, ^{
-        sharedInstance = [[EMStringStyling alloc] init];
+        sharedInstance = [[EMStringStylingConfiguration alloc] init];
     });
     return sharedInstance;
 }
+
+
+#pragma mark - Getters
 
 
 - (UIFont *)strongFont

@@ -8,7 +8,7 @@
 
 
 #import "NSString+EMAdditions.h"
-#import "EMStringStyling.h"
+#import "EMStringStylingConfiguration.h"
 //#import <objc/runtime.h>
 
 
@@ -39,13 +39,13 @@
 
 - (NSAttributedString *)styleStrongForString:(NSAttributedString *)attributedString
 {
-    return [self styleMarkup:kEMStrongMarkup closeMarkup:kEMStrongCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStyling sharedInstance].strongFont } forAttributedString:attributedString];
+    return [self styleMarkup:kEMStrongMarkup closeMarkup:kEMStrongCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].strongFont } forAttributedString:attributedString];
 }
 
 
 - (NSAttributedString *)styleEmphasisForString:(NSAttributedString *)attributedString
 {
-    return [self styleMarkup:kEMEmphasisMarkup closeMarkup:kEMEmphasisCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStyling sharedInstance].emphasisFont } forAttributedString:attributedString];
+    return [self styleMarkup:kEMEmphasisMarkup closeMarkup:kEMEmphasisCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].emphasisFont } forAttributedString:attributedString];
 }
 
 
