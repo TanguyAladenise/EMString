@@ -22,17 +22,10 @@
     
     [EMStringStylingConfiguration sharedInstance].strongFont = [UIFont boldSystemFontOfSize:20];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 300, 200)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 40, 300, 500)];
     label.numberOfLines = 0;
-    label.attributedText = @"<p>je suis une <strong>EMString</strong></p>retour a <strong>la</strong> <em>ligne</em>".attributedString;
+    label.attributedText = @"<p>Je suis une <strong>EMString</strong></p> <p>That can make <u>every</u> string easily <em>styled</em>.</p>".attributedString;
     [self.view addSubview:label];
-    
-    
-    
-    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(40, 150, 300, 200)];
-    label2.numberOfLines = 0;
-    label2.attributedText = @"<p>je suis une <strong>EMString</strong></p>retour a <strong>la</strong> <em>ligne</em>".attributedString;
-    [self.view addSubview:label2];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,6 +21,9 @@ NSString * const kEMStrongCloseMarkup    = @"</strong>";
 NSString * const kEMEmphasisMarkup       = @"<em>";
 NSString * const kEMEmphasisCloseMarkup  = @"</em>";
 
+NSString * const kEMUnderlineMarkup      = @"<u>";
+NSString * const kEMUnderlineCloseMarkup = @"</u>";
+
 
 
 NSString * const kEMStrongFontKey   = @"StrongFontKey";

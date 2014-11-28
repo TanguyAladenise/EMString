@@ -20,6 +20,8 @@
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:[self styleParagraphForString:self]];
     string = [self styleStrongForString:string];
     string = [self styleEmphasisForString:string];
+    string = [self styleUnderlineForString:string];
+    
     return string;
 }
 
@@ -48,6 +50,11 @@
     return [self styleMarkup:kEMEmphasisMarkup closeMarkup:kEMEmphasisCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].emphasisFont } forAttributedString:attributedString];
 }
 
+
+- (NSAttributedString *)styleUnderlineForString:(NSAttributedString *)attributedString
+{
+    return [self styleMarkup:kEMUnderlineMarkup closeMarkup:kEMUnderlineCloseMarkup withAttributes:@{NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) } forAttributedString:attributedString];
+}
 
 
 #pragma mark - Utils
@@ -78,8 +85,25 @@
         
         // Calculate the style range that represent the string between the open and close markups
         NSRange styleRange = NSMakeRange(openMarkupRange.location, closeMarkupRange.location + closeMarkupRange.length - openMarkupRange.location);
-        // Apply styling
+        
+        // Before applying style to the markup, make sure there is "sub" style that have been applied before.
+        __block NSMutableArray *restoreStyle = [[NSMutableArray alloc] init];
+        
+        [styleAttributedString enumerateAttributesInRange:styleRange options:NSAttributedStringEnumerationLongestEffectiveRangeNotRequired usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+            if (attrs.count > 0) {
+                if (range.length < styleRange.length) {
+                    [restoreStyle addObject:@{ @"range" : [NSValue valueWithRange:range], @"attrs" : attrs}];
+                }
+            }
+        }];
+        
+        // Apply style to markup
         [styleAttributedString addAttributes:attributes range:styleRange];
+
+        // Restore "sub" style if necessary
+        for (NSDictionary *style in restoreStyle) {
+            [styleAttributedString addAttributes:style[@"attrs"] range:[style[@"range"] rangeValue]];
+        }
         
         // Remove opening markup in string
         [styleAttributedString.mutableString replaceCharactersInRange:NSMakeRange(openMarkupRange.location, openMarkupRange.length) withString:@""];
