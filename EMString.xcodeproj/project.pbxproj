@@ -16,6 +16,7 @@
 		5E55F8C81A276AA7001860EB /* EMStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8C71A276AA7001860EB /* EMStringTests.m */; };
 		5E55F8D31A276B25001860EB /* NSString+EMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */; };
 		5E55F8D91A279F3A001860EB /* EMStringStyling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D81A279F3A001860EB /* EMStringStyling.m */; };
+		5E55F8DF1A28DB08001860EB /* EMMarkupProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EMAdditions.m"; sourceTree = "<group>"; };
 		5E55F8D71A279F3A001860EB /* EMStringStyling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMStringStyling.h; sourceTree = "<group>"; };
 		5E55F8D81A279F3A001860EB /* EMStringStyling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMStringStyling.m; sourceTree = "<group>"; };
+		5E55F8DD1A28DB08001860EB /* EMMarkupProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMarkupProperty.h; sourceTree = "<group>"; };
+		5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMarkupProperty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */,
 				5E55F8D71A279F3A001860EB /* EMStringStyling.h */,
 				5E55F8D81A279F3A001860EB /* EMStringStyling.m */,
+				5E55F8DD1A28DB08001860EB /* EMMarkupProperty.h */,
+				5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */,
 				5E55F8B51A276AA7001860EB /* Main.storyboard */,
 				5E55F8B81A276AA7001860EB /* Images.xcassets */,
 				5E55F8BA1A276AA7001860EB /* LaunchScreen.xib */,
@@ -233,6 +238,7 @@
 				5E55F8D91A279F3A001860EB /* EMStringStyling.m in Sources */,
 				5E55F8D31A276B25001860EB /* NSString+EMAdditions.m in Sources */,
 				5E55F8B11A276AA7001860EB /* AppDelegate.m in Sources */,
+				5E55F8DF1A28DB08001860EB /* EMMarkupProperty.m in Sources */,
 				5E55F8AE1A276AA7001860EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +430,7 @@
 				5E55F8CD1A276AA7001860EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5E55F8CE1A276AA7001860EB /* Build configuration list for PBXNativeTarget "EMStringTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +439,7 @@
 				5E55F8D01A276AA7001860EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
