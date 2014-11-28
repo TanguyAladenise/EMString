@@ -21,7 +21,8 @@
     string = [self styleStrongForString:string];
     string = [self styleEmphasisForString:string];
     string = [self styleUnderlineForString:string];
-    
+    string = [self styleStrikethroughForString:string];
+
     return string;
 }
 
@@ -54,6 +55,12 @@
 - (NSAttributedString *)styleUnderlineForString:(NSAttributedString *)attributedString
 {
     return [self styleMarkup:kEMUnderlineMarkup closeMarkup:kEMUnderlineCloseMarkup withAttributes:@{NSUnderlineStyleAttributeName : @([EMStringStylingConfiguration sharedInstance].underlineStyle) } forAttributedString:attributedString];
+}
+
+
+- (NSAttributedString *)styleStrikethroughForString:(NSAttributedString *)attributedString
+{
+    return [self styleMarkup:kEMStrikethroughMarkup closeMarkup:kEMStrikethroughCloseMarkup withAttributes:@{NSStrikethroughStyleAttributeName : @([EMStringStylingConfiguration sharedInstance].striketroughStyle) } forAttributedString:attributedString];
 }
 
 

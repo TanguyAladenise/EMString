@@ -22,6 +22,11 @@ extern NSString * const kEMEmphasisCloseMarkup;
 extern NSString * const kEMUnderlineMarkup;
 extern NSString * const kEMUnderlineCloseMarkup;
 
+extern NSString * const kEMStrikethroughMarkup;
+extern NSString * const kEMStrikethroughCloseMarkup;
+
+
+
 
 extern NSString * const kEMStrongFontKey;
 extern NSString * const kEMEmphasisFontKey;

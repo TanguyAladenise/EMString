@@ -29,6 +29,7 @@
 
 #pragma mark - Fonts
 
+
 - (UIFont *)strongFont
 {
     return (_strongFont) ?: [UIFont boldSystemFontOfSize:12];
@@ -40,12 +41,19 @@
     return (_emphasisFont) ?: [UIFont italicSystemFontOfSize:12];
 }
 
+
 #pragma mark - Options
 
 
 - (NSUnderlineStyle)underlineStyle
 {
     return (_underlineStyle == NSUnderlineStyleNone) ?: NSUnderlineStyleSingle;
+}
+
+
+- (NSUnderlineStyle)striketroughStyle
+{
+    return (_striketroughStyle == NSUnderlineStyleNone) ?: NSUnderlineStyleSingle;
 }
 
 @end

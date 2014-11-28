@@ -35,8 +35,14 @@
 @property (strong, nonatomic) UIFont *emphasisFont;
 
 
+
 // Options
 
+
 @property (nonatomic) NSUnderlineStyle underlineStyle;
+
+
+@property (nonatomic) NSUnderlineStyle striketroughStyle;
+
 
 @end
