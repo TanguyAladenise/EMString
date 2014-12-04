@@ -17,6 +17,7 @@
 		5E55F8D31A276B25001860EB /* NSString+EMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D21A276B25001860EB /* NSString+EMAdditions.m */; };
 		5E55F8D91A279F3A001860EB /* EMStringStylingConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8D81A279F3A001860EB /* EMStringStylingConfiguration.m */; };
 		5E55F8DF1A28DB08001860EB /* EMMarkupProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */; };
+		5EAA35AF1A3102A200AC3E12 /* EMStylingClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EAA35AE1A3102A200AC3E12 /* EMStylingClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		5E55F8D81A279F3A001860EB /* EMStringStylingConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMStringStylingConfiguration.m; sourceTree = "<group>"; };
 		5E55F8DD1A28DB08001860EB /* EMMarkupProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMMarkupProperty.h; sourceTree = "<group>"; };
 		5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMMarkupProperty.m; sourceTree = "<group>"; };
+		5EAA35AD1A3102A200AC3E12 /* EMStylingClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMStylingClass.h; sourceTree = "<group>"; };
+		5EAA35AE1A3102A200AC3E12 /* EMStylingClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMStylingClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				5E55F8D81A279F3A001860EB /* EMStringStylingConfiguration.m */,
 				5E55F8DD1A28DB08001860EB /* EMMarkupProperty.h */,
 				5E55F8DE1A28DB08001860EB /* EMMarkupProperty.m */,
+				5EAA35AD1A3102A200AC3E12 /* EMStylingClass.h */,
+				5EAA35AE1A3102A200AC3E12 /* EMStylingClass.m */,
 				5E55F8B51A276AA7001860EB /* Main.storyboard */,
 				5E55F8B81A276AA7001860EB /* Images.xcassets */,
 				5E55F8BA1A276AA7001860EB /* LaunchScreen.xib */,
@@ -238,6 +243,7 @@
 				5E55F8D91A279F3A001860EB /* EMStringStylingConfiguration.m in Sources */,
 				5E55F8D31A276B25001860EB /* NSString+EMAdditions.m in Sources */,
 				5E55F8B11A276AA7001860EB /* AppDelegate.m in Sources */,
+				5EAA35AF1A3102A200AC3E12 /* EMStylingClass.m in Sources */,
 				5E55F8DF1A28DB08001860EB /* EMMarkupProperty.m in Sources */,
 				5E55F8AE1A276AA7001860EB /* main.m in Sources */,
 			);

@@ -30,10 +30,26 @@ extern NSString * const kEMStrikethroughMarkup;
 extern NSString * const kEMStrikethroughCloseMarkup;
 
 
+extern NSString * const kEMH1Markup;
+extern NSString * const kEMH1CloseMarkup;
 
+extern NSString * const kEMH2Markup;
+extern NSString * const kEMH2CloseMarkup;
 
-extern NSString * const kEMStrongFontKey;
-extern NSString * const kEMEmphasisFontKey;
+extern NSString * const kEMH3Markup;
+extern NSString * const kEMH3CloseMarkup;
+
+extern NSString * const kEMH4Markup;
+extern NSString * const kEMH4CloseMarkup;
+
+extern NSString * const kEMH5Markup;
+extern NSString * const kEMH5CloseMarkup;
+
+extern NSString * const kEMH6Markup;
+extern NSString * const kEMH6CloseMarkup;
+
+//extern NSString * const kEMStrongFontKey;
+//extern NSString * const kEMEmphasisFontKey;
 
 
 @end

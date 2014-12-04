@@ -6,7 +6,18 @@
 //  Copyright (c) 2014 Tanguy Aladenise. All rights reserved.
 //
 
+
 #import "EMStringStylingConfiguration.h"
+
+
+@interface EMStringStylingConfiguration()
+
+
+@property (nonatomic, strong) NSMutableArray *mutableStylingClasses;
+
+
+@end
+
 
 @implementation EMStringStylingConfiguration
 
@@ -22,6 +33,17 @@
         sharedInstance = [[EMStringStylingConfiguration alloc] init];
     });
     return sharedInstance;
+}
+
+
+- (void)addNewStylingClass:(EMStylingClass *)stylingClass
+{
+    if ([self.stylingClasses containsObject:stylingClass]) {
+        NSLog(@"Class already handled");
+        return;
+    }
+    
+    [self.mutableStylingClasses addObject:stylingClass];
 }
 
 
@@ -46,6 +68,42 @@
 }
 
 
+- (UIFont *)h1Font
+{
+    return (_h1Font) ?: [UIFont systemFontOfSize:24];
+}
+
+
+- (UIFont *)h2Font
+{
+    return (_h2Font) ?: [UIFont systemFontOfSize:22];
+}
+
+
+- (UIFont *)h3Font
+{
+    return (_h3Font) ?: [UIFont systemFontOfSize:20];
+}
+
+
+- (UIFont *)h4Font
+{
+    return (_h4Font) ?: [UIFont systemFontOfSize:18];
+}
+
+
+- (UIFont *)h5Font
+{
+    return (_h5Font) ?: [UIFont systemFontOfSize:16];
+}
+
+
+- (UIFont *)h6Font
+{
+    return (_h6Font) ?: [UIFont systemFontOfSize:14];
+}
+
+
 #pragma mark - Options
 
 
@@ -58,6 +116,25 @@
 - (NSUnderlineStyle)striketroughStyle
 {
     return (_striketroughStyle == NSUnderlineStyleNone) ?: NSUnderlineStyleSingle;
+}
+
+
+#pragma mark - Lazy instantiation
+
+
+- (NSMutableArray *)mutableStylingClasses
+{
+    if (!_mutableStylingClasses) {
+        _mutableStylingClasses = [[NSMutableArray alloc] init];
+    }
+    
+    return _mutableStylingClasses;
+}
+
+
+- (NSMutableArray *)stylingClasses
+{
+    return self.mutableStylingClasses.copy;
 }
 
 @end

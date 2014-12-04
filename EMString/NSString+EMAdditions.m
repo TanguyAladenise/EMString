@@ -17,16 +17,23 @@
 
 - (NSAttributedString *)attributedString
 {
-    // Default styling first
+    // Default styling first by appending default markup    
     NSString *mutableString = [self stringByAppendingString:kEMDefaultCloseMarkup];
     mutableString = [kEMDefaultMarkup stringByAppendingString:mutableString];
     
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:[self styleParagraphForString:mutableString]];
-    string = [self defaultStyling:string];
     string = [self styleStrongForString:string];
     string = [self styleEmphasisForString:string];
     string = [self styleUnderlineForString:string];
     string = [self styleStrikethroughForString:string];
+    string = [self styleHeaders:string];
+    string = [self defaultStyling:string];
+    
+    if ([EMStringStylingConfiguration sharedInstance].stylingClasses.count > 0) {
+        for (EMStylingClass *aStylingClass in [EMStringStylingConfiguration sharedInstance].stylingClasses) {
+            string = [self styleCustomStylingClass:aStylingClass forString:string];
+        }
+    }
 
     return string;
 }
@@ -74,6 +81,25 @@
     return [self styleMarkup:kEMStrikethroughMarkup closeMarkup:kEMStrikethroughCloseMarkup withAttributes:@{NSStrikethroughStyleAttributeName : @([EMStringStylingConfiguration sharedInstance].striketroughStyle) } forAttributedString:attributedString];
 }
 
+
+- (NSAttributedString *)styleHeaders:(NSAttributedString *)attributedString
+{
+    attributedString = [self styleMarkup:kEMH1Markup closeMarkup:kEMH1CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h1Font } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH2Markup closeMarkup:kEMH2CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h2Font } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH3Markup closeMarkup:kEMH3CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h3Font } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH4Markup closeMarkup:kEMH4CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h4Font } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH5Markup closeMarkup:kEMH5CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h5Font } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH6Markup closeMarkup:kEMH6CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h6Font } forAttributedString:attributedString];
+
+    
+    return attributedString;
+}
+
+
+- (NSAttributedString *)styleCustomStylingClass:(EMStylingClass *)aStylingClass forString:(NSAttributedString *)attributedString
+{
+    return [self styleMarkup:aStylingClass.markup closeMarkup:aStylingClass.closeMarkup withAttributes:aStylingClass.attributes forAttributedString:attributedString];
+}
 
 #pragma mark - Utils
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "EMStylingClass.h"
 
 
 @interface EMStringStylingConfiguration : NSObject
@@ -19,6 +20,12 @@
  *  @return An singleton instance of EMStringStylingConfiguration
  */
 + (EMStringStylingConfiguration *)sharedInstance;
+
+
+- (void)addNewStylingClass:(EMStylingClass *)stylingClass;
+
+
+@property (nonatomic, strong, readonly) NSArray *stylingClasses;
 
 
 // Fonts
@@ -38,6 +45,42 @@
  *  The font for emphasis markup.
  */
 @property (strong, nonatomic) UIFont *emphasisFont;
+
+
+/**
+ *  The font for emphasis markup.
+ */
+@property (strong, nonatomic) UIFont *h1Font;
+
+
+/**
+ *  The font for emphasis markup.
+ */
+@property (strong, nonatomic) UIFont *h2Font;
+
+
+/**
+ *  The font for emphasis markup.
+ */
+@property (strong, nonatomic) UIFont *h3Font;
+
+
+/**
+ *  The font for emphasis markup.
+ */
+@property (strong, nonatomic) UIFont *h4Font;
+
+
+/**
+ *  The font for emphasis markup.
+ */
+@property (strong, nonatomic) UIFont *h5Font;
+
+
+/**
+ *  The font for emphasis markup.
+ */
+@property (strong, nonatomic) UIFont *h6Font;
 
 
 
