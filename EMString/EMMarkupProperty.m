@@ -12,6 +12,9 @@
 
 #pragma mark - Static
 
+NSString * const kEMDefaultMarkup      = @"<defaultEM>";
+NSString * const kEMDefaultCloseMarkup = @"</defaultEM>";
+
 NSString * const kEMParagraphMarkup      = @"<p>";
 NSString * const kEMParagraphCloseMarkup = @"</p>";
 

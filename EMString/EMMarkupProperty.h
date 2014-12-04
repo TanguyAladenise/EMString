@@ -10,6 +10,10 @@
 
 @interface EMMarkupProperty : NSObject
 
+
+extern NSString * const kEMDefaultMarkup;
+extern NSString * const kEMDefaultCloseMarkup;
+
 extern NSString * const kEMParagraphMarkup;
 extern NSString * const kEMParagraphCloseMarkup;
 

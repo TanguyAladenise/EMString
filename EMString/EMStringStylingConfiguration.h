@@ -26,6 +26,11 @@
 /**
  *  The font for strong markup.
  */
+@property (strong, nonatomic) UIFont *defaultFont;
+
+/**
+ *  The font for strong markup.
+ */
 @property (strong, nonatomic) UIFont *strongFont;
 
 
@@ -39,9 +44,15 @@
 // Options
 
 
+/**
+ *  NSUnderlineStyle for underlining text
+ */
 @property (nonatomic) NSUnderlineStyle underlineStyle;
 
 
+/**
+ *  NSUnderlineStyle for striketrough text
+ */
 @property (nonatomic) NSUnderlineStyle striketroughStyle;
 
 

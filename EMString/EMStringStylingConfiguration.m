@@ -29,6 +29,10 @@
 
 #pragma mark - Fonts
 
+- (UIFont *)defaultFont
+{
+    return (_defaultFont) ?: [UIFont systemFontOfSize:12];
+}
 
 - (UIFont *)strongFont
 {

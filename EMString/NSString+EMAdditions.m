@@ -17,7 +17,12 @@
 
 - (NSAttributedString *)attributedString
 {
-    NSAttributedString *string = [[NSAttributedString alloc] initWithString:[self styleParagraphForString:self]];
+    // Default styling first
+    NSString *mutableString = [self stringByAppendingString:kEMDefaultCloseMarkup];
+    mutableString = [kEMDefaultMarkup stringByAppendingString:mutableString];
+    
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:[self styleParagraphForString:mutableString]];
+    string = [self defaultStyling:string];
     string = [self styleStrongForString:string];
     string = [self styleEmphasisForString:string];
     string = [self styleUnderlineForString:string];
@@ -37,6 +42,12 @@
     string = [string stringByReplacingOccurrencesOfString:@"\n " withString:@"\n"];
     
     return string;
+}
+
+
+- (NSAttributedString *)defaultStyling:(NSAttributedString *)attributedString
+{
+    return [self styleMarkup:kEMDefaultMarkup closeMarkup:kEMDefaultCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].defaultFont } forAttributedString:attributedString];
 }
 
 
