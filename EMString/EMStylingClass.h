@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface EMStylingClass : NSObject
 
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) NSString *markup;
 
 
+
 /**
  *  The close markup for styling. Read-only property since close markup will be deducted from markup
  */
@@ -34,6 +36,18 @@
     https://developer.apple.com/Library/ios/documentation/UIKit/Reference/NSAttributedString_UIKit_Additions/index.html#//apple_ref/doc/constant_group/Character_Attributes
  */
 @property (nonatomic, strong) NSDictionary *attributes;
+
+
+
+/**
+ *  The color to apply to the string. Convenient setter to populate attributes.
+ */
+- (void)setColor:(UIColor *)color;
+
+/**
+ *  The font to apply to the string. Convenient setter to populate attributes.
+ */
+- (void)setFont:(UIFont *)font;
 
 
 @end

@@ -26,7 +26,8 @@
 //    [EMStringStylingConfiguration sharedInstance].strongFont = [UIFont boldSystemFontOfSize:20];
     EMStylingClass *aStylingClass = [[EMStylingClass alloc] init];
     aStylingClass.markup = @"<strong>";
-    aStylingClass.attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:20], NSForegroundColorAttributeName : [UIColor redColor] };
+    [aStylingClass setFont:[UIFont systemFontOfSize:40]];
+    [aStylingClass setColor:[UIColor redColor]];
     [[EMStringStylingConfiguration sharedInstance] addNewStylingClass:aStylingClass];
     
     aStylingClass = [[EMStylingClass alloc] init];
