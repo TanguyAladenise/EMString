@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "EMMarkupProperty.h"
+#import "EMStringStylingConfiguration.h"
+
 
 @interface NSString (EMAdditions)
 
