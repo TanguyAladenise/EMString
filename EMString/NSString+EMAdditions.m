@@ -54,19 +54,19 @@
 
 - (NSAttributedString *)defaultStyling:(NSAttributedString *)attributedString
 {
-    return [self styleMarkup:kEMDefaultMarkup closeMarkup:kEMDefaultCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].defaultFont } forAttributedString:attributedString];
+    return [self styleMarkup:kEMDefaultMarkup closeMarkup:kEMDefaultCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].defaultFont, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].defaultColor } forAttributedString:attributedString];
 }
 
 
 - (NSAttributedString *)styleStrongForString:(NSAttributedString *)attributedString
 {
-    return [self styleMarkup:kEMStrongMarkup closeMarkup:kEMStrongCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].strongFont } forAttributedString:attributedString];
+    return [self styleMarkup:kEMStrongMarkup closeMarkup:kEMStrongCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].strongFont, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].strongColor } forAttributedString:attributedString];
 }
 
 
 - (NSAttributedString *)styleEmphasisForString:(NSAttributedString *)attributedString
 {
-    return [self styleMarkup:kEMEmphasisMarkup closeMarkup:kEMEmphasisCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].emphasisFont } forAttributedString:attributedString];
+    return [self styleMarkup:kEMEmphasisMarkup closeMarkup:kEMEmphasisCloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].emphasisFont, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].emphasisColor } forAttributedString:attributedString];
 }
 
 
@@ -84,12 +84,12 @@
 
 - (NSAttributedString *)styleHeaders:(NSAttributedString *)attributedString
 {
-    attributedString = [self styleMarkup:kEMH1Markup closeMarkup:kEMH1CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h1Font } forAttributedString:attributedString];
-    attributedString = [self styleMarkup:kEMH2Markup closeMarkup:kEMH2CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h2Font } forAttributedString:attributedString];
-    attributedString = [self styleMarkup:kEMH3Markup closeMarkup:kEMH3CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h3Font } forAttributedString:attributedString];
-    attributedString = [self styleMarkup:kEMH4Markup closeMarkup:kEMH4CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h4Font } forAttributedString:attributedString];
-    attributedString = [self styleMarkup:kEMH5Markup closeMarkup:kEMH5CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h5Font } forAttributedString:attributedString];
-    attributedString = [self styleMarkup:kEMH6Markup closeMarkup:kEMH6CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h6Font } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH1Markup closeMarkup:kEMH1CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h1Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h1Color } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH2Markup closeMarkup:kEMH2CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h2Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h2Color } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH3Markup closeMarkup:kEMH3CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h3Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h3Color } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH4Markup closeMarkup:kEMH4CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h4Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h4Color } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH5Markup closeMarkup:kEMH5CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h5Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h5Color } forAttributedString:attributedString];
+    attributedString = [self styleMarkup:kEMH6Markup closeMarkup:kEMH6CloseMarkup withAttributes:@{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h6Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h6Color } forAttributedString:attributedString];
 
     
     return attributedString;
@@ -141,8 +141,22 @@
             }
         }];
         
+        
+        BOOL overrideMarkup = NO;
+        
         // Apply style to markup
-        [styleAttributedString addAttributes:attributes range:styleRange];
+        
+        // Check if one of the custom class is not overriding a default markup with a more complex styling
+        for (EMStylingClass *aStylingClass in [EMStringStylingConfiguration sharedInstance].stylingClasses) {
+            if ([aStylingClass.markup isEqualToString:markup]) {
+                overrideMarkup = YES;
+                [styleAttributedString addAttributes:aStylingClass.attributes range:styleRange];
+            }
+        }
+        
+        if (!overrideMarkup) {
+            [styleAttributedString addAttributes:attributes range:styleRange];
+        }
 
         // Restore "sub" style if necessary
         for (NSDictionary *style in restoreStyle) {

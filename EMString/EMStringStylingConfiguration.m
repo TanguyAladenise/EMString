@@ -104,6 +104,63 @@
 }
 
 
+#pragma mark - Colors
+
+
+- (UIColor *)defaultColor
+{
+    return (_defaultColor) ?: [UIColor blackColor];
+}
+
+
+- (UIColor *)strongColor
+{
+    return (_strongColor) ?: self.defaultColor;
+}
+
+
+- (UIColor *)emphasisColor
+{
+    return (_emphasisColor) ?: self.defaultColor;
+}
+
+
+- (UIColor *)h1Color
+{
+    return (_h1Color) ?: self.defaultColor;
+}
+
+
+- (UIColor *)h2Color
+{
+    return (_h2Color) ?: self.defaultColor;
+}
+
+
+- (UIColor *)h3Color
+{
+    return (_h3Color) ?: self.defaultColor;
+}
+
+
+- (UIColor *)h4Color
+{
+    return (_h4Color) ?: self.defaultColor;
+}
+
+
+- (UIColor *)h5Color
+{
+    return (_h5Color) ?: self.defaultColor;
+}
+
+
+- (UIColor *)h6Color
+{
+    return (_h6Color) ?: self.defaultColor;
+}
+
+
 #pragma mark - Options
 
 

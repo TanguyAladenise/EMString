@@ -36,9 +36,19 @@
 @property (strong, nonatomic) UIFont *defaultFont;
 
 /**
+ *  The color for strong markup.
+ */
+@property (strong, nonatomic) UIColor *defaultColor;
+
+/**
  *  The font for strong markup.
  */
 @property (strong, nonatomic) UIFont *strongFont;
+
+/**
+ *  The color for strong markup.
+ */
+@property (strong, nonatomic) UIColor *strongColor;
 
 
 /**
@@ -46,41 +56,76 @@
  */
 @property (strong, nonatomic) UIFont *emphasisFont;
 
+/**
+ *  The color for emphasis markup.
+ */
+@property (strong, nonatomic) UIColor *emphasisColor;
+
 
 /**
- *  The font for emphasis markup.
+ *  The font for h1 markup.
  */
 @property (strong, nonatomic) UIFont *h1Font;
 
+/**
+ *  The color for h1 markup.
+ */
+@property (strong, nonatomic) UIColor *h1Color;
+
 
 /**
- *  The font for emphasis markup.
+ *  The font for h2 markup.
  */
 @property (strong, nonatomic) UIFont *h2Font;
 
+/**
+ *  The color for h2 markup.
+ */
+@property (strong, nonatomic) UIColor *h2Color;
+
 
 /**
- *  The font for emphasis markup.
+ *  The font for h3 markup.
  */
 @property (strong, nonatomic) UIFont *h3Font;
 
+/**
+ *  The color for h3 markup.
+ */
+@property (strong, nonatomic) UIColor *h3Color;
+
 
 /**
- *  The font for emphasis markup.
+ *  The font for h4 markup.
  */
 @property (strong, nonatomic) UIFont *h4Font;
 
+/**
+ *  The color for h4 markup.
+ */
+@property (strong, nonatomic) UIColor *h4Color;
+
 
 /**
- *  The font for emphasis markup.
+ *  The font for h5 markup.
  */
 @property (strong, nonatomic) UIFont *h5Font;
 
+/**
+ *  The color for h5 markup.
+ */
+@property (strong, nonatomic) UIColor *h5Color;
+
 
 /**
- *  The font for emphasis markup.
+ *  The font for h6 markup.
  */
 @property (strong, nonatomic) UIFont *h6Font;
+
+/**
+ *  The color for h6 markup.
+ */
+@property (strong, nonatomic) UIColor *h6Color;
 
 
 
