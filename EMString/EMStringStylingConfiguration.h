@@ -75,7 +75,7 @@
 /**
  *  The display style for h1 markup.
  */
-@property (nonatomic) BOOL h1DisplayBlock;
+@property (nonatomic) BOOL h1DisplayInline;
 
 
 /**
@@ -91,7 +91,7 @@
 /**
  *  The display style for h2 markup.
  */
-@property (nonatomic) BOOL h2DisplayBlock;
+@property (nonatomic) BOOL h2DisplayInline;
 
 
 /**
@@ -107,7 +107,7 @@
 /**
  *  The display style for h3 markup.
  */
-@property (nonatomic) BOOL h3DisplayBlock;
+@property (nonatomic) BOOL h3DisplayInline;
 
 
 /**
@@ -123,7 +123,7 @@
 /**
  *  The display style for h4 markup.
  */
-@property (nonatomic) BOOL h4DisplayBlock;
+@property (nonatomic) BOOL h4DisplayInline;
 
 
 /**
@@ -139,7 +139,7 @@
 /**
  *  The display style for h5 markup.
  */
-@property (nonatomic) BOOL h5DisplayBlock;
+@property (nonatomic) BOOL h5DisplayInline;
 
 
 /**
@@ -155,7 +155,7 @@
 /**
  *  The display style for h6 markup.
  */
-@property (nonatomic) BOOL h6DisplayBlock;
+@property (nonatomic) BOOL h6DisplayInline;
 
 
 
