@@ -24,6 +24,9 @@
 @property (nonatomic, strong) NSString *markup;
 
 
+/**
+ *  The display style for the markup to follow. By default element will be inline. If you want it to return to the line automatically pass this property to YES.
+ */
 @property (nonatomic, getter=isDisplayBlock) BOOL displayBlock;
 
 
@@ -39,6 +42,8 @@
  */
 @property (nonatomic, strong) NSDictionary *attributes;
 
+
+- (EMStylingClass *)initWithMarkup:(NSString *)markup;
 
 
 /**

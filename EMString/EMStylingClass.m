@@ -17,16 +17,29 @@
 @implementation EMStylingClass
 
 
+- (EMStylingClass *)initWithMarkup:(NSString *)markup
+{
+    self = [[EMStylingClass alloc] init];
+    if (self) {
+        self.markup = markup;
+    }
+    
+    return self;
+}
+
+
 - (NSString *)closeMarkup
 {
     return [self.markup stringByReplacingOccurrencesOfString:@"<" withString:@"</"];
 }
+
 
 - (void)setColor:(UIColor *)color
 {
     [self.mutableAttributes setObject:color forKey:NSForegroundColorAttributeName];
     self.attributes = self.mutableAttributes.copy;
 }
+
 
 - (void)setFont:(UIFont *)font
 {
