@@ -198,8 +198,15 @@
         // Restore "sub" style if necessary
         for (NSDictionary *style in restoreStyle) {
             [styleAttributedString addAttributes:style[@"attrs"] range:[style[@"range"] rangeValue]];
+            
+            // When restoring sub style, make sure the color of the new style is not overidden by the default color by restoring it.
+            // Check if we are trying to apply a color
             if ([stylingClass.attributes valueForKey:NSForegroundColorAttributeName]) {
-                [styleAttributedString addAttribute:NSForegroundColorAttributeName value:[stylingClass.attributes valueForKey:NSForegroundColorAttributeName] range:[style[@"range"] rangeValue]];
+                // If we apply a color make sure we did not just re-apply the default color on that sub style.
+                if ([[style[@"attrs"] valueForKey:NSForegroundColorAttributeName] isEqual:[EMStringStylingConfiguration sharedInstance].defaultColor]) {
+                    // If we restored wrongly default color, we reapply custom color styling.
+                    [styleAttributedString addAttribute:NSForegroundColorAttributeName value:[stylingClass.attributes valueForKey:NSForegroundColorAttributeName] range:[style[@"range"] rangeValue]];
+                }
             }
         }
         
