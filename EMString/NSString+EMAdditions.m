@@ -161,8 +161,13 @@
         
         // Find range of close markup
         NSRange closeMarkupRange = [styleAttributedString.mutableString rangeOfString:stylingClass.closeMarkup];
+    
+        if (closeMarkupRange.location == NSNotFound) {
+            NSLog(@"Error finding close markup %@. Make sure you open and close your markups correctly.", stylingClass.closeMarkup);
+            return attributedString;
+        }
         
-        NSLog(@"debut markup range %lu - %lu", (unsigned long)closeMarkupRange.location, (unsigned long)closeMarkupRange.length);
+        NSLog(@"close markup range %lu - %lu", (unsigned long)closeMarkupRange.location, (unsigned long)closeMarkupRange.length);
         
         // Calculate the style range that represent the string between the open and close markups
         NSRange styleRange = NSMakeRange(openMarkupRange.location, closeMarkupRange.location + closeMarkupRange.length - openMarkupRange.location);
@@ -206,6 +211,7 @@
                 if ([[style[@"attrs"] valueForKey:NSForegroundColorAttributeName] isEqual:[EMStringStylingConfiguration sharedInstance].defaultColor]) {
                     // If we restored wrongly default color, we reapply custom color styling.
                     [styleAttributedString addAttribute:NSForegroundColorAttributeName value:[stylingClass.attributes valueForKey:NSForegroundColorAttributeName] range:[style[@"range"] rangeValue]];
+                    NSLog(stylingClass.markup);
                 }
             }
         }
