@@ -33,7 +33,7 @@
     // For overide purpose this we MUST apply custom class styling in last.
     if ([EMStringStylingConfiguration sharedInstance].stylingClasses.count > 0) {
         for (EMStylingClass *aStylingClass in [EMStringStylingConfiguration sharedInstance].stylingClasses) {
-            string = [self styleCustomStylingClass:aStylingClass forString:string];
+            string = [self applyStylingClass:aStylingClass forAttributedString:string];
         }
     }
 
@@ -131,11 +131,6 @@
     return attributedString;
 }
 
-
-- (NSAttributedString *)styleCustomStylingClass:(EMStylingClass *)aStylingClass forString:(NSAttributedString *)attributedString
-{
-    return [self styleMarkup:aStylingClass.markup closeMarkup:aStylingClass.closeMarkup withAttributes:aStylingClass.attributes forAttributedString:attributedString];
-}
 
 #pragma mark - Utils
 
