@@ -22,18 +22,21 @@
     mutableString = [kEMDefaultMarkup stringByAppendingString:mutableString];
     
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:[self styleParagraphForString:mutableString]];
+    // Default style need to be applied first
+    string = [self defaultStyling:string];
     string = [self styleStrongForString:string];
     string = [self styleEmphasisForString:string];
     string = [self styleUnderlineForString:string];
     string = [self styleStrikethroughForString:string];
     string = [self styleHeaders:string];
-    string = [self defaultStyling:string];
-    
+
+    // For overide purpose this we MUST apply custom class styling in last.
     if ([EMStringStylingConfiguration sharedInstance].stylingClasses.count > 0) {
         for (EMStylingClass *aStylingClass in [EMStringStylingConfiguration sharedInstance].stylingClasses) {
             string = [self styleCustomStylingClass:aStylingClass forString:string];
         }
     }
+
 
     return string;
 }
@@ -161,6 +164,11 @@
         // Restore "sub" style if necessary
         for (NSDictionary *style in restoreStyle) {
             [styleAttributedString addAttributes:style[@"attrs"] range:[style[@"range"] rangeValue]];
+            if ([attributes valueForKey:NSForegroundColorAttributeName]) {
+                [styleAttributedString addAttribute:NSForegroundColorAttributeName value:[attributes valueForKey:NSForegroundColorAttributeName] range:[style[@"range"] rangeValue]];
+
+                NSLog(@"%@",[attributes valueForKey:NSForegroundColorAttributeName]);
+            }
         }
         
         // Remove opening markup in string
