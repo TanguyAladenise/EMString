@@ -103,29 +103,35 @@
 - (NSAttributedString *)styleHeaders:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
-    stylingClass.markup = kEMH1Markup;
-    stylingClass.attributes = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h1Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h1Color };
-    attributedString = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-    
-    stylingClass.markup = kEMH2Markup;
-    stylingClass.attributes = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h2Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h2Color };
-    attributedString = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-    
-    stylingClass.markup = kEMH3Markup;
-    stylingClass.attributes = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h3Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h3Color };
-    attributedString = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-    
-    stylingClass.markup = kEMH4Markup;
-    stylingClass.attributes = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h4Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h4Color };
-    attributedString = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-    
-    stylingClass.markup = kEMH5Markup;
-    stylingClass.attributes = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h5Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h5Color };
-    attributedString = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-    
-    stylingClass.markup = kEMH1Markup;
-    stylingClass.attributes = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h6Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h6Color };
-    attributedString = [self applyStylingClass:stylingClass forAttributedString:attributedString];
+    stylingClass.markup          = kEMH1Markup;
+    stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h1Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h1Color };
+    stylingClass.displayBlock    = [EMStringStylingConfiguration sharedInstance].h1DisplayBlock;
+    attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
+
+    stylingClass.markup          = kEMH2Markup;
+    stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h2Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h2Color };
+    stylingClass.displayBlock    = [EMStringStylingConfiguration sharedInstance].h2DisplayBlock;
+    attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
+
+    stylingClass.markup          = kEMH3Markup;
+    stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h3Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h3Color };
+    stylingClass.displayBlock    = [EMStringStylingConfiguration sharedInstance].h3DisplayBlock;
+    attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
+
+    stylingClass.markup          = kEMH4Markup;
+    stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h4Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h4Color };
+    stylingClass.displayBlock    = [EMStringStylingConfiguration sharedInstance].h4DisplayBlock;
+    attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
+
+    stylingClass.markup          = kEMH5Markup;
+    stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h5Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h5Color };
+    stylingClass.displayBlock    = [EMStringStylingConfiguration sharedInstance].h5DisplayBlock;
+    attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
+
+    stylingClass.markup          = kEMH1Markup;
+    stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h6Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h6Color };
+    stylingClass.displayBlock    = [EMStringStylingConfiguration sharedInstance].h6DisplayBlock;
+    attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
 
     
     return attributedString;
@@ -204,7 +210,11 @@
         closeMarkupRange = [styleAttributedString.mutableString rangeOfString:stylingClass.closeMarkup];
         
         // Remove closing markup in string
-        [styleAttributedString.mutableString replaceCharactersInRange:NSMakeRange(closeMarkupRange.location, closeMarkupRange.length) withString:@""];
+        NSString *replaceEndMarkupBy = @"";
+        if (stylingClass.isDisplayBlock) {
+            replaceEndMarkupBy = @"\n";
+        }
+        [styleAttributedString.mutableString replaceCharactersInRange:NSMakeRange(closeMarkupRange.location, closeMarkupRange.length) withString:replaceEndMarkupBy];
     }
     
     return styleAttributedString;

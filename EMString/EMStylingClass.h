@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSString *markup;
 
 
+@property (nonatomic, getter=isDisplayBlock) BOOL displayBlock;
+
 
 /**
  *  The close markup for styling. Read-only property since close markup will be deducted from markup

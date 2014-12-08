@@ -22,6 +22,8 @@
     
     [EMStringStylingConfiguration sharedInstance].defaultColor = [UIColor yellowColor];
     [EMStringStylingConfiguration sharedInstance].h1Color = [UIColor redColor];
+    [EMStringStylingConfiguration sharedInstance].h1DisplayBlock = YES;
+
 
 //    [EMStringStylingConfiguration sharedInstance].strongFont = [UIFont boldSystemFontOfSize:20];
     EMStylingClass *aStylingClass = [[EMStylingClass alloc] init];

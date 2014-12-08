@@ -72,6 +72,11 @@
  */
 @property (strong, nonatomic) UIColor *h1Color;
 
+/**
+ *  The display style for h1 markup.
+ */
+@property (nonatomic) BOOL h1DisplayBlock;
+
 
 /**
  *  The font for h2 markup.
@@ -82,6 +87,11 @@
  *  The color for h2 markup.
  */
 @property (strong, nonatomic) UIColor *h2Color;
+
+/**
+ *  The display style for h2 markup.
+ */
+@property (nonatomic) BOOL h2DisplayBlock;
 
 
 /**
@@ -94,6 +104,11 @@
  */
 @property (strong, nonatomic) UIColor *h3Color;
 
+/**
+ *  The display style for h3 markup.
+ */
+@property (nonatomic) BOOL h3DisplayBlock;
+
 
 /**
  *  The font for h4 markup.
@@ -104,6 +119,11 @@
  *  The color for h4 markup.
  */
 @property (strong, nonatomic) UIColor *h4Color;
+
+/**
+ *  The display style for h4 markup.
+ */
+@property (nonatomic) BOOL h4DisplayBlock;
 
 
 /**
@@ -116,6 +136,11 @@
  */
 @property (strong, nonatomic) UIColor *h5Color;
 
+/**
+ *  The display style for h5 markup.
+ */
+@property (nonatomic) BOOL h5DisplayBlock;
+
 
 /**
  *  The font for h6 markup.
@@ -126,6 +151,11 @@
  *  The color for h6 markup.
  */
 @property (strong, nonatomic) UIColor *h6Color;
+
+/**
+ *  The display style for h6 markup.
+ */
+@property (nonatomic) BOOL h6DisplayBlock;
 
 
 
