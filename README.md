@@ -37,6 +37,58 @@ myLabel.attributedText = @"<strong>This text is bold</strong> but then <em>itali
 Do I need to say more? :)
 
 
+Customization's magic
+===
+
+If we talk about styling text then we talk about customization and versatility. 
+EMString gives you comes with a set of default markup:
+<ul><li>strong</li><li>em</li><li>p</li><li>u</li><li>s</li><li>and headings h1,h2,...,h6</li></ul>
+
+Those markup can be easily customized to fit your need.
+Basically you can set for each of those pre-defined markup:
+<ul><li>A specific font</li><li>A specific color</li><li>A display rule (inline/block)</li></ul>
+
+To apply a style you have to modify properties of <code>EMStringStylingConfiguration</code>
+
+For example I will change the h1 and strong markup behavior:
+
+```objc
+// Change h1 font
+[EMStringStylingConfiguration sharedInstance].h1Font = [UIFont fontWithName:@"OpenSans" size:26];
+// Change h1 color
+[EMStringStylingConfiguration sharedInstance].h1Color = [UIColor blueColor];
+// Change strong font
+[EMStringStylingConfiguration sharedInstance].strongFont = [UIFont fontWithName:@"OpenSans-Bold" size:fontSize];
+```
+
+Also if you have a default color and/or font for your whole app you can use those two convenient properties.
+```objc
+@property (strong, nonatomic) UIFont *defaultFont;
+
+@property (strong, nonatomic) UIColor *defaultColor;
+```
+
+Finally what if you need your own markup? Well EMString make it simple once again.
+Use the convenient <code>EMStylingClass</code> object to create a custom class:
+
+```objc
+EMStylingClass *aStylingClass = [[EMStylingClass alloc] initWithMarkup:@"<customMarkup>"];
+[aStylingClass setColor:[UIColor blueColor]];
+[aStylingClass setFont:[UIFont fontWithName:@"OpenSans" size:16]];
+// You can use the attributes property for full control
+// aStylingClass.attributes = @{};
+[[EMStringStylingConfiguration sharedInstance] addNewStylingClass:aStylingClass];
+```
+
+Since <code>EMStringStylingConfiguration.h</code> is a singleton you don't have to do this everytime. Only once, to setup your styling need. After that, all call to .attributedString will give you the NSAttributedString properly styled.
+This will help you to be consistent in your design as well.
+
+For a better idea of all you can do I suggest you take a look at the header files <code>EMStringStylingConfiguration.h</code> and <code>EMStylingClass.h</code>.
+
+
+
+
+
 This is a work in progress :)
 
 
