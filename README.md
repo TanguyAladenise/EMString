@@ -36,12 +36,17 @@ myLabel.attributedText = @"<strong>This text is bold</strong> but then <em>itali
 
 Do I need to say more? :)
 
+Installation
+===
+
+I still haven't setup the cocoapod for this repository, but if you want to start using EMString, download the archive and import the EMString folder in your Xcode project.
 
 Customization's magic
 ===
 
 If we talk about styling text then we talk about customization and versatility. 
-EMString gives you comes with a set of default markup:
+EMString gives you precisely that.
+Firstly, it comes with a set of default markup:
 <ul><li>strong</li><li>em</li><li>p</li><li>u</li><li>s</li><li>and headings h1,h2,...,h6</li></ul>
 
 Those markup can be easily customized to fit your need.
@@ -68,7 +73,7 @@ Also if you have a default color and/or font for your whole app you can use thos
 @property (strong, nonatomic) UIColor *defaultColor;
 ```
 
-Finally what if you need your own markup? Well EMString make it simple once again.
+Secondly, what if you need your own markup? Well EMString make it simple once again.
 Use the convenient <code>EMStylingClass</code> object to create a custom class:
 
 ```objc
@@ -86,15 +91,8 @@ This will help you to be consistent in your design as well.
 For a better idea of all you can do I suggest you take a look at the header files <code>EMStringStylingConfiguration.h</code> and <code>EMStylingClass.h</code>.
 
 
-
-
-
-This is a work in progress :)
-
-
-
-Notes for myself
+Update readme with
 =
-Explain customization and versatility.
+Installation cocoapods
 Explain advantages (localization purposes)
 
