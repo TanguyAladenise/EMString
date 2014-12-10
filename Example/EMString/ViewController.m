@@ -44,7 +44,7 @@
     [[EMStringStylingConfiguration sharedInstance] addNewStylingClass:aStylingClass];
 
     
-    self.topLabel.attributedText = @"<h1>Welcome\n<em>to EMSString's magic</em> normal h1</h1> norlam dsasdsaasdsdasda".attributedString;
+    self.topLabel.attributedText = @"<h1>Welcome\n<em>to EMSString's magic</em> normal h1</h1>dsad".attributedString;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -231,7 +231,7 @@
         
         // Remove closing markup in string
         NSString *replaceEndMarkupBy = @"";
-        if (stylingClass.isDisplayBlock) {
+        if (closeMarkupRange.location < styleAttributedString.string.length - stylingClass.closeMarkup.length && stylingClass.isDisplayBlock) {
             replaceEndMarkupBy = @"\n";
         }
         [styleAttributedString.mutableString replaceCharactersInRange:NSMakeRange(closeMarkupRange.location, closeMarkupRange.length) withString:replaceEndMarkupBy];

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhB-cl-qNf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -30,7 +30,7 @@
                         <constraints>
                             <constraint firstItem="uhB-cl-qNf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="4o5-ta-Uu6"/>
                             <constraint firstAttribute="trailing" secondItem="uhB-cl-qNf" secondAttribute="trailing" id="5pF-cf-KIT"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uhB-cl-qNf" secondAttribute="bottom" constant="441" id="pYv-W2-f60"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="uhB-cl-qNf" secondAttribute="bottom" constant="420" id="pYv-W2-f60"/>
                             <constraint firstItem="uhB-cl-qNf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="uXU-sk-9O1"/>
                         </constraints>
                     </view>
