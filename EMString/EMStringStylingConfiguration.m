@@ -53,54 +53,54 @@
 
 - (UIFont *)defaultFont
 {
-    return (_defaultFont) ?: [UIFont systemFontOfSize:12];
+    return (_defaultFont) ?: [UIFont systemFontOfSize:16];
 }
 
 - (UIFont *)strongFont
 {
-    return (_strongFont) ?: [UIFont boldSystemFontOfSize:12];
+    return (_strongFont) ?: [UIFont boldSystemFontOfSize:16];
 }
 
 
 - (UIFont *)emphasisFont
 {
-    return (_emphasisFont) ?: [UIFont italicSystemFontOfSize:12];
+    return (_emphasisFont) ?: [UIFont italicSystemFontOfSize:16];
 }
 
 
 - (UIFont *)h1Font
 {
-    return (_h1Font) ?: [UIFont systemFontOfSize:24];
+    return (_h1Font) ?: [UIFont systemFontOfSize:28];
 }
 
 
 - (UIFont *)h2Font
 {
-    return (_h2Font) ?: [UIFont systemFontOfSize:22];
+    return (_h2Font) ?: [UIFont systemFontOfSize:26];
 }
 
 
 - (UIFont *)h3Font
 {
-    return (_h3Font) ?: [UIFont systemFontOfSize:20];
+    return (_h3Font) ?: [UIFont systemFontOfSize:24];
 }
 
 
 - (UIFont *)h4Font
 {
-    return (_h4Font) ?: [UIFont systemFontOfSize:18];
+    return (_h4Font) ?: [UIFont systemFontOfSize:22];
 }
 
 
 - (UIFont *)h5Font
 {
-    return (_h5Font) ?: [UIFont systemFontOfSize:16];
+    return (_h5Font) ?: [UIFont systemFontOfSize:20];
 }
 
 
 - (UIFont *)h6Font
 {
-    return (_h6Font) ?: [UIFont systemFontOfSize:14];
+    return (_h6Font) ?: [UIFont systemFontOfSize:18];
 }
 
 

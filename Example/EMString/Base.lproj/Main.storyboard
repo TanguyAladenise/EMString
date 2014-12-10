@@ -25,6 +25,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrC-bw-NcS">
+                                <rect key="frame" x="0.0" y="188" width="600" height="412"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -35,6 +40,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="textView" destination="SrC-bw-NcS" id="Yge-86-1nr"/>
                         <outlet property="topLabel" destination="uhB-cl-qNf" id="twI-dP-jVU"/>
                     </connections>
                 </viewController>
