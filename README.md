@@ -90,8 +90,36 @@ This will help you to be consistent in your design as well.
 For a better idea of all you can do I suggest you take a look at the header files <code>EMStringStylingConfiguration.h</code> and <code>EMStylingClass.h</code>.
 
 
+Advantages
+===
+
+Here is a list of advantages I personnaly found while using <strong>EMString</strong>:
+<ul>
+<li>Cleaner & prettier code</li>
+<li>One configuration to rule them all!</li>
+<li>Better consistency in your design</li>
+<li>Abstraction of <code>NSAttributedString</code> API</li>
+<li>Localization/Dynamic text</li>
+</ul>
+
+The last one may need further explanation. When working on a project while using <code>NSAttributedString</code> I stumble upon this issue.
+I had a label showing a string with a bold text and then with a light font one. 
+Basically the text would be compose of a place name (in bold) followed by the its city location (in light).
+So I used range of string to apply styling. But it got complicated with a restaurant whose name containes the city.
+Like for example <q>Café de Paris, Paris.</q> The first instance of Paris would be light and not bold, and the second instance would not have been styled. This problem could be raised by any dynamic/translated text.
+I know that I could fix this by appending attributedString together... but making my code longer and uglier for a simple matter.
+
+```objc
+// Simply like that with EMString
+[NSString stringWithFormat:@"<strong>%@,</strong><light>%@</light>", place.name, place.city].attributedString
+```
+
+License
+===
+
+EMString is available under the MIT license. See the LICENSE file for more info.
+
 Update readme with
 =
 Installation cocoapods
-Explain advantages (localization purposes)
 
