@@ -204,14 +204,21 @@
         for (NSDictionary *style in restoreStyle) {
             [styleAttributedString addAttributes:style[@"attrs"] range:[style[@"range"] rangeValue]];
             
-            // When restoring sub style, make sure the color of the new style is not overidden by the default color by restoring it.
-            // Check if we are trying to apply a color
+            // When restoring sub style, make sure the color/font of the new style is not overidden by the default color/font because of restoring mechanism.
+            
+            // Firt check if we are trying to apply a color to see if treatment is necessary
             if ([stylingClass.attributes valueForKey:NSForegroundColorAttributeName]) {
                 // If we apply a color make sure we did not just re-apply the default color on that sub style.
                 if ([[style[@"attrs"] valueForKey:NSForegroundColorAttributeName] isEqual:[EMStringStylingConfiguration sharedInstance].defaultColor]) {
                     // If we restored wrongly default color, we reapply custom color styling.
                     [styleAttributedString addAttribute:NSForegroundColorAttributeName value:[stylingClass.attributes valueForKey:NSForegroundColorAttributeName] range:[style[@"range"] rangeValue]];
-                    NSLog(stylingClass.markup);
+                }
+            }
+            
+            // Same thing for font
+            if ([stylingClass.attributes valueForKey:NSFontAttributeName]) {
+                if ([[style[@"attrs"] valueForKey:NSFontAttributeName] isEqual:[EMStringStylingConfiguration sharedInstance].defaultFont]) {
+                    [styleAttributedString addAttribute:NSFontAttributeName value:[stylingClass.attributes valueForKey:NSFontAttributeName] range:[style[@"range"] rangeValue]];
                 }
             }
         }

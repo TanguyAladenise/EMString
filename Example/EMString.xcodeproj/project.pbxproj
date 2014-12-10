@@ -135,14 +135,14 @@
 		5E977AB91A38CA530018B632 /* EMString */ = {
 			isa = PBXGroup;
 			children = (
-				5E977ABA1A38CA530018B632 /* EMMarkupProperty.h */,
-				5E977ABB1A38CA530018B632 /* EMMarkupProperty.m */,
+				5E977AC01A38CA530018B632 /* NSString+EMAdditions.h */,
+				5E977AC11A38CA530018B632 /* NSString+EMAdditions.m */,
 				5E977ABC1A38CA530018B632 /* EMStringStylingConfiguration.h */,
 				5E977ABD1A38CA530018B632 /* EMStringStylingConfiguration.m */,
 				5E977ABE1A38CA530018B632 /* EMStylingClass.h */,
 				5E977ABF1A38CA530018B632 /* EMStylingClass.m */,
-				5E977AC01A38CA530018B632 /* NSString+EMAdditions.h */,
-				5E977AC11A38CA530018B632 /* NSString+EMAdditions.m */,
+				5E977ABA1A38CA530018B632 /* EMMarkupProperty.h */,
+				5E977ABB1A38CA530018B632 /* EMMarkupProperty.m */,
 			);
 			name = EMString;
 			path = ../../EMString;
