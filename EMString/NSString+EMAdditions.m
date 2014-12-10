@@ -157,7 +157,7 @@
     // Find range of open markup
     while((openMarkupRange = [styleAttributedString.mutableString rangeOfString:stylingClass.markup]).location != NSNotFound) {
         
-        NSLog(@"debut markup range %lu - %lu", (unsigned long)openMarkupRange.location, (unsigned long)openMarkupRange.length);
+//        NSLog(@"debut markup range %lu - %lu", (unsigned long)openMarkupRange.location, (unsigned long)openMarkupRange.length);
         
         // Find range of close markup
         NSRange closeMarkupRange = [styleAttributedString.mutableString rangeOfString:stylingClass.closeMarkup];
@@ -167,7 +167,7 @@
             return attributedString;
         }
         
-        NSLog(@"close markup range %lu - %lu", (unsigned long)closeMarkupRange.location, (unsigned long)closeMarkupRange.length);
+//        NSLog(@"close markup range %lu - %lu", (unsigned long)closeMarkupRange.location, (unsigned long)closeMarkupRange.length);
         
         // Calculate the style range that represent the string between the open and close markups
         NSRange styleRange = NSMakeRange(openMarkupRange.location, closeMarkupRange.location + closeMarkupRange.length - openMarkupRange.location);

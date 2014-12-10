@@ -1,5 +1,5 @@
 //
-//  EMStringStyling.h
+//  EMStringStylingConfiguration.h
 //  EMString
 //
 //  Created by Tanguy Aladenise on 2014-11-27.
@@ -31,12 +31,12 @@
 // Fonts
 
 /**
- *  The font for strong markup.
+ *  The font for default markup.
  */
 @property (strong, nonatomic) UIFont *defaultFont;
 
 /**
- *  The color for strong markup.
+ *  The color for default markup.
  */
 @property (strong, nonatomic) UIColor *defaultColor;
 

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9106CE06-3167-4CB2-A288-9803D61F54FE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EMString</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>69F9E4F814D04430A490D28AC2E83FE910693E24</key>
+		<string>https://github.com/TanguyAladenise/EMString.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Example/EMString.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>69F9E4F814D04430A490D28AC2E83FE910693E24</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TanguyAladenise/EMString.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>69F9E4F814D04430A490D28AC2E83FE910693E24</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>69F9E4F814D04430A490D28AC2E83FE910693E24</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EMString</string>
+		</dict>
+	</array>
+</dict>
+</plist>
