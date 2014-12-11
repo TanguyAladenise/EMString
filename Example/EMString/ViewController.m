@@ -44,11 +44,12 @@
     [[EMStringStylingConfiguration sharedInstance] addNewStylingClass:aStylingClass];
     
     aStylingClass = [[EMStylingClass alloc] initWithMarkup:@"<purple>"];
-    [aStylingClass setColor:[UIColor purpleColor]];
+    aStylingClass.color = [UIColor purpleColor];
+    aStylingClass.font = [UIFont boldSystemFontOfSize:40];
     [[EMStringStylingConfiguration sharedInstance] addNewStylingClass:aStylingClass];
     
     aStylingClass = [[EMStylingClass alloc] initWithMarkup:@"<red>"];
-    [aStylingClass setColor:[UIColor redColor]];
+    aStylingClass.color = [UIColor redColor];
     [[EMStringStylingConfiguration sharedInstance] addNewStylingClass:aStylingClass];
     
     

@@ -36,6 +36,7 @@
 
 - (void)setColor:(UIColor *)color
 {
+    _color = color;
     [self.mutableAttributes setObject:color forKey:NSForegroundColorAttributeName];
     self.attributes = self.mutableAttributes.copy;
 }
@@ -43,6 +44,7 @@
 
 - (void)setFont:(UIFont *)font
 {
+    _font = font;
     [self.mutableAttributes setValue:font forKey:NSFontAttributeName];
     self.attributes = self.mutableAttributes.copy;
 }

@@ -49,12 +49,12 @@
 /**
  *  The color to apply to the string. Convenient setter to populate attributes.
  */
-- (void)setColor:(UIColor *)color;
+@property (nonatomic, strong) UIColor *color;
 
 /**
  *  The font to apply to the string. Convenient setter to populate attributes.
  */
-- (void)setFont:(UIFont *)font;
+@property (nonatomic, strong) UIFont *font;
 
 
 @end
