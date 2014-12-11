@@ -38,7 +38,22 @@ Do I need to say more? :)
 Installation
 ===
 
-I still haven't setup the cocoapod for this repository, but if you want to start using <strong>EMString</strong>, download the archive and import the EMString folder in your Xcode project.
+#### CocoaPods
+
+With CocoaPods by adding in your podfile the following line :
+
+```ruby
+pod 'EMString'
+```
+
+#### Manually
+
+It's quite easy, just download the archive and add the <code>EMString</code> folder to your own project.
+Don't forget to import the header file wherever you need it :
+
+``` objective-c
+#import "NSString+EMAdditions.h"
+```
 
 Customization's magic
 ===
@@ -119,7 +134,7 @@ License
 
 EMString is available under the MIT license. See the LICENSE file for more info.
 
-Update readme with
-=
-Installation cocoapods
+More
+===
 
+Contribute to this repository as much as you like, and any advice are welcome! =). Hope you will enjoy it.
