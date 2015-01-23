@@ -137,4 +137,4 @@ EMString is available under the MIT license. See the LICENSE file for more info.
 More
 ===
 
-Contribute to this repository as much as you like, and any advice are welcome! =). Hope you will enjoy it.
+Contribute to this repository as much as you like, and any advice are welcome! =). I hope you will enjoy it.
