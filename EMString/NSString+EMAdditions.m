@@ -17,7 +17,7 @@
 
 - (NSAttributedString *)attributedString
 {
-    // Default styling first by appending default markup    
+    // Default styling first by appending default markup
     NSString *mutableString = [self stringByAppendingString:kEMDefaultCloseMarkup];
     mutableString = [kEMDefaultMarkup stringByAppendingString:mutableString];
     
@@ -29,15 +29,15 @@
     string = [self styleUnderlineForString:string];
     string = [self styleStrikethroughForString:string];
     string = [self styleHeaders:string];
-
+    
     // For overide purpose this we MUST apply custom class styling in last.
     if ([EMStringStylingConfiguration sharedInstance].stylingClasses.count > 0) {
         for (EMStylingClass *aStylingClass in [EMStringStylingConfiguration sharedInstance].stylingClasses) {
             string = [self applyStylingClass:aStylingClass forAttributedString:string];
         }
     }
-
-
+    
+    
     return string;
 }
 
@@ -107,32 +107,32 @@
     stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h1Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h1Color };
     stylingClass.displayBlock    = ![EMStringStylingConfiguration sharedInstance].h1DisplayInline;
     attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-
+    
     stylingClass.markup          = kEMH2Markup;
     stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h2Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h2Color };
     stylingClass.displayBlock    = ![EMStringStylingConfiguration sharedInstance].h2DisplayInline;
     attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-
+    
     stylingClass.markup          = kEMH3Markup;
     stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h3Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h3Color };
     stylingClass.displayBlock    = ![EMStringStylingConfiguration sharedInstance].h3DisplayInline;
     attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-
+    
     stylingClass.markup          = kEMH4Markup;
     stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h4Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h4Color };
     stylingClass.displayBlock    = ![EMStringStylingConfiguration sharedInstance].h4DisplayInline;
     attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-
+    
     stylingClass.markup          = kEMH5Markup;
     stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h5Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h5Color };
     stylingClass.displayBlock    = ![EMStringStylingConfiguration sharedInstance].h5DisplayInline;
     attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-
+    
     stylingClass.markup          = kEMH6Markup;
     stylingClass.attributes      = @{NSFontAttributeName : [EMStringStylingConfiguration sharedInstance].h6Font, NSForegroundColorAttributeName : [EMStringStylingConfiguration sharedInstance].h6Color };
     stylingClass.displayBlock    = ![EMStringStylingConfiguration sharedInstance].h6DisplayInline;
     attributedString             = [self applyStylingClass:stylingClass forAttributedString:attributedString];
-
+    
     
     return attributedString;
 }
@@ -157,17 +157,17 @@
     // Find range of open markup
     while((openMarkupRange = [styleAttributedString.mutableString rangeOfString:stylingClass.markup]).location != NSNotFound) {
         
-//        NSLog(@"debut markup range %lu - %lu", (unsigned long)openMarkupRange.location, (unsigned long)openMarkupRange.length);
+        //        NSLog(@"debut markup range %lu - %lu", (unsigned long)openMarkupRange.location, (unsigned long)openMarkupRange.length);
         
         // Find range of close markup
         NSRange closeMarkupRange = [styleAttributedString.mutableString rangeOfString:stylingClass.closeMarkup];
-    
+        
         if (closeMarkupRange.location == NSNotFound) {
             NSLog(@"Error finding close markup %@. Make sure you open and close your markups correctly.", stylingClass.closeMarkup);
             return attributedString;
         }
         
-//        NSLog(@"close markup range %lu - %lu", (unsigned long)closeMarkupRange.location, (unsigned long)closeMarkupRange.length);
+        //        NSLog(@"close markup range %lu - %lu", (unsigned long)closeMarkupRange.location, (unsigned long)closeMarkupRange.length);
         
         // Calculate the style range that represent the string between the open and close markups
         NSRange styleRange = NSMakeRange(openMarkupRange.location, closeMarkupRange.location + closeMarkupRange.length - openMarkupRange.location);

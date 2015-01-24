@@ -16,6 +16,8 @@
 
 @implementation EMStylingClass
 
+@synthesize attributes = _attributes;
+
 
 - (EMStylingClass *)initWithMarkup:(NSString *)markup
 {
@@ -38,7 +40,6 @@
 {
     _color = color;
     [self.mutableAttributes setObject:color forKey:NSForegroundColorAttributeName];
-    self.attributes = self.mutableAttributes.copy;
 }
 
 
@@ -46,7 +47,12 @@
 {
     _font = font;
     [self.mutableAttributes setValue:font forKey:NSFontAttributeName];
-    self.attributes = self.mutableAttributes.copy;
+}
+
+
+- (void)setAttributes:(NSDictionary *)attributes
+{
+    [self.mutableAttributes addEntriesFromDictionary:attributes];
 }
 
 
@@ -67,11 +73,7 @@
 
 - (NSDictionary *)attributes
 {
-    if (!_attributes) {
-        _attributes = [[NSDictionary alloc] init];
-    }
-    
-    return _attributes;
+    return _mutableAttributes.copy;
 }
 
 @end

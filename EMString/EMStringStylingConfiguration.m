@@ -58,51 +58,99 @@
 
 - (UIFont *)strongFont
 {
-    return (_strongFont) ?: [UIFont boldSystemFontOfSize:16];
+    if (_strongFont) {
+        return _strongFont;
+    }
+    
+    // Try to determine to best font available for default strong behavior
+    UIFont *font = [self findFontByAppendingStyle:@"Bold"];
+    
+    return (font) ?: [UIFont boldSystemFontOfSize:self.defaultFont.pointSize];
 }
 
 
 - (UIFont *)emphasisFont
 {
-    return (_emphasisFont) ?: [UIFont italicSystemFontOfSize:16];
+    if (_emphasisFont) {
+        return _emphasisFont;
+    }
+    
+    // Try to determine to best font available for default strong behavior
+    UIFont *font = [self findFontByAppendingStyle:@"Italic"];
+
+    return (font) ?: [UIFont italicSystemFontOfSize:self.defaultFont.pointSize];
 }
 
 
 - (UIFont *)h1Font
 {
-    return (_h1Font) ?: [UIFont systemFontOfSize:28];
+    return (_h1Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 12];
 }
 
 
 - (UIFont *)h2Font
 {
-    return (_h2Font) ?: [UIFont systemFontOfSize:26];
+    return (_h2Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 10];
 }
 
 
 - (UIFont *)h3Font
 {
-    return (_h3Font) ?: [UIFont systemFontOfSize:24];
+    return (_h3Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 8];
 }
 
 
 - (UIFont *)h4Font
 {
-    return (_h4Font) ?: [UIFont systemFontOfSize:22];
+    return (_h4Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 6];
 }
 
 
 - (UIFont *)h5Font
 {
-    return (_h5Font) ?: [UIFont systemFontOfSize:20];
+    return (_h5Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 4];
 }
 
 
 - (UIFont *)h6Font
 {
-    return (_h6Font) ?: [UIFont systemFontOfSize:18];
+    return (_h6Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 2];
 }
 
+
+- (UIFont *)findFontByAppendingStyle:(NSString *)style
+{
+    UIFont *font;
+    
+    // This logic is only necessary if default font is not system
+    if (![self useDefaultSystemFont]) {
+        
+        // Try to find the style font family name automatically
+        NSString *styleFontName = [self.defaultFont.familyName stringByAppendingString:[NSString stringWithFormat:@"-%@", style.capitalizedString]];
+        font = [UIFont fontWithName:styleFontName size:self.defaultFont.pointSize];
+        
+        if (!font) {
+            styleFontName = [styleFontName stringByAppendingString:@"MT"];
+            font = [UIFont fontWithName:styleFontName size:self.defaultFont.pointSize];
+        }
+        
+        if (!font) {
+            NSLog(@"EMString was not able to find a font %@ automatically for your custom default font : %@. The system default font for %@ will be use instead.", style, self.defaultFont.familyName, style);
+        }
+    }
+    
+    return font;
+}
+
+
+- (BOOL)useDefaultSystemFont
+{
+    if ([self.defaultFont.familyName isEqualToString:[UIFont systemFontOfSize:16].familyName]) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 #pragma mark - Colors
 
