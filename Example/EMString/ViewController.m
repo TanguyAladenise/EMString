@@ -33,7 +33,7 @@
         NSLog (@"%@: %@", fontFamily, fontNames);
     }
     
-    self.textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.textView.textContainerInset = UIEdgeInsetsMake(20, 10, 20, 10);
 
 
     // Setup my styling for the app.
