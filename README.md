@@ -1,6 +1,9 @@
 About EMString
 ===
 
+![demo](https://dl.dropboxusercontent.com/u/20482310/EMString.gif)
+
+
 <strong>EMString</strong> stands for <em><strong>E</strong>asy <strong>M</strong>arkup <strong>S</strong>tring</em>. I hesitated to call it SONSAString : Sick Of NSAttributedString...
 
 Even if Apple tried to make it easier for us to work with custom fonts and text styling, it still isn't as convenient as it should be.
