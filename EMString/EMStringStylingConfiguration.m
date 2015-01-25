@@ -84,37 +84,37 @@
 
 - (UIFont *)h1Font
 {
-    return (_h1Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 12];
+    return (_h1Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 18];
 }
 
 
 - (UIFont *)h2Font
 {
-    return (_h2Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 10];
+    return (_h2Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 15];
 }
 
 
 - (UIFont *)h3Font
 {
-    return (_h3Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 8];
+    return (_h3Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 12];
 }
 
 
 - (UIFont *)h4Font
 {
-    return (_h4Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 6];
+    return (_h4Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 9];
 }
 
 
 - (UIFont *)h5Font
 {
-    return (_h5Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 4];
+    return (_h5Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 6];
 }
 
 
 - (UIFont *)h6Font
 {
-    return (_h6Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 2];
+    return (_h6Font) ?: [UIFont fontWithName:self.defaultFont.familyName size:self.defaultFont.pointSize + 3];
 }
 
 
