@@ -10,11 +10,17 @@
 
 @interface EMStylingClass()
 
+/**
+ *  Attributes for styling class
+ */
 @property (strong, nonatomic) NSMutableDictionary *mutableAttributes;
+
 
 @end
 
+
 @implementation EMStylingClass
+
 
 @synthesize attributes = _attributes;
 
@@ -30,10 +36,7 @@
 }
 
 
-- (NSString *)closeMarkup
-{
-    return [self.markup stringByReplacingOccurrencesOfString:@"<" withString:@"</"];
-}
+#pragma mark - Setters
 
 
 - (void)setColor:(UIColor *)color
@@ -57,6 +60,16 @@
 
 
 #pragma mark - Getters
+
+/**
+ *  Getter for closeMarkup. Return a value based on markup
+ *
+ *  @return The close markup NSString
+ */
+- (NSString *)closeMarkup
+{
+    return [self.markup stringByReplacingOccurrencesOfString:@"<" withString:@"</"];
+}
 
 
 - (NSMutableDictionary *)mutableAttributes

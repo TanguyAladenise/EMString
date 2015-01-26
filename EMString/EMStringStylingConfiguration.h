@@ -22,9 +22,17 @@
 + (EMStringStylingConfiguration *)sharedInstance;
 
 
+/**
+ *  Add a styling class EMStylingClass to configuration
+ *
+ *  @param stylingClass The EMStylingClass to add
+ */
 - (void)addNewStylingClass:(EMStylingClass *)stylingClass;
 
 
+/**
+ *  The array of EMStylingClass
+ */
 @property (nonatomic, strong, readonly) NSArray *stylingClasses;
 
 

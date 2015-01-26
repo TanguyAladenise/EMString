@@ -13,6 +13,9 @@
 @interface EMStringStylingConfiguration()
 
 
+/**
+ *  NSMutable array of EMStylingClass
+ */
 @property (nonatomic, strong) NSMutableArray *mutableStylingClasses;
 
 
@@ -25,6 +28,11 @@
 #pragma Init
 
 
+/**
+ *  Singleton instance of EMStringStylingConfiguration
+ *
+ *  @return An instance of EMStringStylingConfiguration
+ */
 + (EMStringStylingConfiguration *)sharedInstance
 {
     static dispatch_once_t once;
@@ -39,7 +47,7 @@
 - (void)addNewStylingClass:(EMStylingClass *)stylingClass
 {
     if ([self.stylingClasses containsObject:stylingClass]) {
-        NSLog(@"Class already handled");
+        NSLog(@"Class already added");
         return;
     }
     
@@ -49,10 +57,13 @@
 
 #pragma mark - Getters
 
+
 #pragma mark - Fonts
+
 
 - (UIFont *)defaultFont
 {
+    // Return system font if no default font was provided
     return (_defaultFont) ?: [UIFont systemFontOfSize:16];
 }
 
@@ -62,7 +73,7 @@
         return _strongFont;
     }
     
-    // Try to determine to best font available for default strong behavior
+    // Try to determine to best font available for strong behavior
     UIFont *font = [self findFontByAppendingStyle:@"Bold"];
     
     return (font) ?: [UIFont boldSystemFontOfSize:self.defaultFont.pointSize];
@@ -75,12 +86,13 @@
         return _emphasisFont;
     }
     
-    // Try to determine to best font available for default strong behavior
+    // Try to determine to best font available for emphasis behavior
     UIFont *font = [self findFontByAppendingStyle:@"Italic"];
 
     return (font) ?: [UIFont italicSystemFontOfSize:self.defaultFont.pointSize];
 }
 
+// For headers, retrieve default font and apply +3 points to point size per header layer (h6 = +3pts. h1 = +18pts)
 
 - (UIFont *)h1Font
 {
@@ -118,6 +130,14 @@
 }
 
 
+/**
+ *  Try to find a matching font for a given style. Basically algo will take default font familly name and try to append -Italic or -ItaliceMT to it. And see 
+ *  if font exists
+ *
+ *  @param style The NSString representing the style to find. eg: "italic"
+ *
+ *  @return UIFont instance. Will be nil if not font was find.
+ */
 - (UIFont *)findFontByAppendingStyle:(NSString *)style
 {
     UIFont *font;
@@ -143,6 +163,11 @@
 }
 
 
+/**
+ *  Check if configuration uses system default font.
+ *
+ *  @return BOOL value. Yes if default font is equal to system default font.q
+ */
 - (BOOL)useDefaultSystemFont
 {
     if ([self.defaultFont.familyName isEqualToString:[UIFont systemFontOfSize:16].familyName]) {

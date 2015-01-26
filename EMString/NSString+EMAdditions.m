@@ -9,7 +9,6 @@
 
 #import "NSString+EMAdditions.h"
 #import "EMStringStylingConfiguration.h"
-//#import <objc/runtime.h>
 
 
 @implementation NSString (EMAdditions)
@@ -17,10 +16,11 @@
 
 - (NSAttributedString *)attributedString
 {
-    // Default styling first by appending default markup
+    // Automatically append the default text markup
     NSString *mutableString = [self stringByAppendingString:kEMDefaultCloseMarkup];
-    mutableString = [kEMDefaultMarkup stringByAppendingString:mutableString];
+    mutableString           = [kEMDefaultMarkup stringByAppendingString:mutableString];
     
+    // Apply styling to string
     NSAttributedString *string = [[NSAttributedString alloc] initWithString:[self styleParagraphForString:mutableString]];
     // Default style need to be applied first
     string = [self defaultStyling:string];
@@ -30,13 +30,14 @@
     string = [self styleStrikethroughForString:string];
     string = [self styleHeaders:string];
     
-    // For overide purpose this we MUST apply custom class styling in last.
+    
+    // For overide purpose, we MUST apply custom class styling in last.
     if ([EMStringStylingConfiguration sharedInstance].stylingClasses.count > 0) {
+        // Apply custom class
         for (EMStylingClass *aStylingClass in [EMStringStylingConfiguration sharedInstance].stylingClasses) {
             string = [self applyStylingClass:aStylingClass forAttributedString:string];
         }
     }
-    
     
     return string;
 }
@@ -45,16 +46,33 @@
 #pragma mark - Styling strin
 
 
+/**
+ *  Apply paragraph styling to given string
+ *
+ *  @param string The NSString to apply paragraph style
+ *
+ *  @return NSString with paragraph styling applied
+ */
 - (NSString *)styleParagraphForString:(NSString *)string
 {
+    // In the string remove paragraph opening markup
     string = [self clearMarkup:kEMParagraphMarkup forString:string];
+    // Then replace closing paragraph markup with a return to line
     string = [string stringByReplacingOccurrencesOfString:kEMParagraphCloseMarkup withString:@"\n"];
+    // Finally check for empty spaces at beginning of paragraph
     string = [string stringByReplacingOccurrencesOfString:@"\n " withString:@"\n"];
     
     return string;
 }
 
 
+/**
+ *  Apply default styling to given NSAttributed string
+ *
+ *  @param attributedString The NSAttributedString to use for apply styling
+ *
+ *  @return NSSAttributed string with styling applied
+ */
 - (NSAttributedString *)defaultStyling:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
@@ -64,6 +82,13 @@
 }
 
 
+/**
+ *  Apply strong styling to given NSAttributed string
+ *
+ *  @param attributedString The NSAttributedString to use for apply styling
+ *
+ *  @return NSSAttributed string with styling applied
+ */
 - (NSAttributedString *)styleStrongForString:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
@@ -73,6 +98,13 @@
 }
 
 
+/**
+ *  Apply emphasis styling to given NSAttributed string
+ *
+ *  @param attributedString The NSAttributedString to use for apply styling
+ *
+ *  @return NSSAttributed string with styling applied
+ */
 - (NSAttributedString *)styleEmphasisForString:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
@@ -82,6 +114,13 @@
 }
 
 
+/**
+ *  Apply underline styling to given NSAttributed string
+ *
+ *  @param attributedString The NSAttributedString to use for apply styling
+ *
+ *  @return NSSAttributed string with styling applied
+ */
 - (NSAttributedString *)styleUnderlineForString:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
@@ -91,6 +130,13 @@
 }
 
 
+/**
+ *  Apply strikethrough styling to given NSAttributed string
+ *
+ *  @param attributedString The NSAttributedString to use for apply styling
+ *
+ *  @return NSSAttributed string with styling applied
+ */
 - (NSAttributedString *)styleStrikethroughForString:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
@@ -100,6 +146,13 @@
 }
 
 
+/**
+ *  Apply headers styling to given NSAttributed string
+ *
+ *  @param attributedString The NSAttributedString to use for apply styling
+ *
+ *  @return NSSAttributed string with styling applied
+ */
 - (NSAttributedString *)styleHeaders:(NSAttributedString *)attributedString
 {
     EMStylingClass *stylingClass = [[EMStylingClass alloc] init];
@@ -141,12 +194,28 @@
 #pragma mark - Utils
 
 
+/**
+ *  Clear a given markup out a given string
+ *
+ *  @param markup The markup to find and remove
+ *  @param string The string in which to exerce find and clean
+ *
+ *  @return The NSString resulting from clean operation
+ */
 - (NSString *)clearMarkup:(NSString *)markup forString:(NSString *)string
 {
     return [string stringByReplacingOccurrencesOfString:markup withString:@""];
 }
 
 
+/**
+ *  Apply a styling class for a given NSAttributedString
+ *
+ *  @param stylingClass     EMStylingClass to apply
+ *  @param attributedString NSAttributedString to apply styling class
+ *
+ *  @return NSAttributedString styled with class
+ */
 - (NSAttributedString *)applyStylingClass:(EMStylingClass *)stylingClass forAttributedString:(NSAttributedString *)attributedString
 {
     // Use a mutable attributed string to apply styling by occurence of markup
@@ -240,16 +309,5 @@
     return styleAttributedString;
 }
 
-
-
-//- (void)setStrongFont:(UIFont *)strongFont
-//{
-//    objc_setAssociatedObject(self, (__bridge const void *)(emStrongFontKey), strongFont, OBJC_ASSOCIATION_COPY);
-//}
-//
-//- (UIFont *)strongFont
-//{
-//    return objc_getAssociatedObject(self, (__bridge const void *)(emStrongFontKey));
-//}
 
 @end

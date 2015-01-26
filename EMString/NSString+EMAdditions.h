@@ -14,12 +14,9 @@
 @interface NSString (EMAdditions)
 
 /**
- *  Return the style attributedString according to markup contained in the string.
+ *  Return the styled attributedString according to markup contained in the string.
  */
 @property (readonly, copy) NSAttributedString *attributedString;
-
-//@property (nonatomic, copy) UIFont *strongFont;
-//@property (strong, nonatomic) UIFont *emphasisFont;
 
 
 @end

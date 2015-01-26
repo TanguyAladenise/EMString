@@ -11,6 +11,15 @@
 
 @interface EMStylingClass : NSObject
 
+/**
+ *  Init method for EMStylingClass
+ *
+ *  @param markup The markup to identify styling. Must be in the form of : "<yourMarkup>".
+ *
+ *  @return An EMStylingClass instance
+ */
+- (EMStylingClass *)initWithMarkup:(NSString *)markup;
+
 
 /**
  *  A given name for a styling class. Optional field.
@@ -37,13 +46,10 @@
 
 
 /**
- *  A dictionary containing the attributes to set. Attribute keys can be supplied by another framework or can be custom ones you define. For information about where to find the system-supplied attribute keys, see the overview section in NSAttributedString Class Reference.
+ *  A dictionary containing the attributes to set for the NSAttributedString. For information about where to find the system-supplied attribute keys, see the overview section in NSAttributedString Class Reference.
     https://developer.apple.com/Library/ios/documentation/UIKit/Reference/NSAttributedString_UIKit_Additions/index.html#//apple_ref/doc/constant_group/Character_Attributes
  */
 @property (nonatomic, strong) NSDictionary *attributes;
-
-
-- (EMStylingClass *)initWithMarkup:(NSString *)markup;
 
 
 /**
